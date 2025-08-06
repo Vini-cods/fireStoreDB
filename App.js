@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';import { bancoExterno } from './firebaseConnection';
-import { doc, getDoc, onSnapshot, setDoc, addDoc, collection } from 'firebase/firestore';
+import { doc, getDoc, getDocs ,onSnapshot, setDoc, addDoc, collection } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 
 export default function App() {
@@ -27,6 +27,25 @@ export default function App() {
       })
     }
     pegarDados();
+
+    const referencia2 = collection(bancoExterno, "aparelhos");
+getDocs(referencia2)
+        .then((snap) => {
+          let lista = [];
+          snap.forEach((doc) => {
+            lista.push({
+              id: doc.id,
+              tv: doc.data()?.TV,
+              geladeira: doc.data()?.Geladeira,
+              fogao: doc.data()?.Fogão
+            })
+          })
+          let info =lista[2].tv
+          setNome3(info);
+        })
+        .catch((erro) => {
+          console.log(erro);
+        })
 
   }, [])
 
