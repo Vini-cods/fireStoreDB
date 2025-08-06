@@ -7,6 +7,7 @@ export default function App() {
 
   const [nome, setNome] = useState('Carregando...');
   const [nome2, setNome2] = useState('');
+  const [nome3, setNome3] = useState('');
 
   useEffect(() => {
     async function pegarDados() {
@@ -47,7 +48,9 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text style={{ fontSize: 25 }}>Informação: {nome}, {nome2}</Text>
+      <Text style={{ fontSize: 25 }}>GetDoc: {nome}</Text>
+      <Text style={{ fontSize: 25 }}>OnSnapshot: {nome2}</Text>
+      <Text style={{ fontSize: 25 }}>GetDocs: {nome3} </Text>
       <StatusBar style="auto" />
       <TouchableOpacity onPress={addBancoExterno} style={{ backgroundColor: "#F50" }}>
         <Text style={{ fontSize: 20, paddingHorizontal: 15 }}>Adicionar</Text>
