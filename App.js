@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { bancoExterno } from './firebaseConnection';
 
 export default function App() {
   return (
